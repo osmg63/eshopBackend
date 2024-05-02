@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-server:3306/redbull
+      SPRING_DATASOURCE_USERNAME: springstudent
+      SPRING_DATASOURCE_PASSWORD: springstudent
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+    networks:
+      - mysql-network
+networks:
+  mysql-network:
+    external: true
